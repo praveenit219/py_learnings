@@ -1,0 +1,47 @@
+﻿{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Registration</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Travello template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form action="register" method="post">
+            <div class="form-group">
+                {% csrf_token %}
+                <input type="text" name="first_name" placeholder="First Name" /> <br />
+            </div>
+            <div class="form-group">
+                <input type="text" name="last_name" placeholder="Last Name" /> <br />
+            </div>
+            <div class="form-group">
+                <input type="text" name="username" placeholder="User Name" /> <br />
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" /> <br />
+            </div>
+            <div class="form-group">
+                <input type="password" name="password1" placeholder="Password" /> <br />
+            </div>
+            <div class="form-group">
+                <input type="password" name="password2" placeholder="Retype Password" /> <br />
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+    <div>
+        {% for message in messages %}
+        <h4> {{message}} </h4>
+        {% endfor %}
+    </div>
+</body>
+</html>
