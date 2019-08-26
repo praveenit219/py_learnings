@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+know about us ...
+
+<p>
+ {{ my_text }}
+
+ {{ my_number }}
+
+ {{ my_list }}
+</p>
+
+
+<ul>
+     {% for my_subItem in my_list %}       
+    <li>
+            {{ forloop.counter }} -  {{ my_subItem }}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
