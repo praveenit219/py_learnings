@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>DIY Blog Home</h1>
+<p>Welcome to <em>DIY Blog</em>, a very basic Django blogging website developed as an
+    for the Django learning module.</p>
+
+<h3> blogger details </h3>
+<p>
+    <b><i> Total Blog Authors : </i></b> {{ num_authors }} <br>
+    <b><i> Total Blogs : </i></b>{{ num_blogs }}
+</p>
+<!--
+<h3>UML Model</h3>
+<p>An UML diagram of the site's Django model structure is shown below. </p>
+
+<div>
+{% load static %}
+<img src="{% static "images/blog_models.png" %}" alt="blog uml image" style="width:555px;height:540px;"/>
+</div>
+-->
+
+{% endblock %}
+
