@@ -1,0 +1,1220 @@
+
+d:\learn\python\py_learnings (master -> origin)
+λ curl http://127.0.0.1:8000/api/v1/songs/
+[{"title":"Kiss from a rose","artist":"Seal"},{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"}]
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 07:17:39 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 135
+
+[{"title":"Kiss from a rose","artist":"Seal"},{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"}]
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/1
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 07:37:21 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 44
+
+{"title":"Kiss from a rose","artist":"Seal"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/2
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 07:37:24 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 42
+
+{"title":"Gotham City","artist":"R kelly"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/-1
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 07:37:27 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Content-Length: 4488
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/v1/songs/-1</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; background:#eee; color:#000; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 span { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+  </style>
+</head>
+<body>
+  <div id="summary">
+    <h1>Page not found <span>(404)</span></h1>
+    <table class="meta">
+      <tr>
+        <th>Request Method:</th>
+        <td>GET</td>
+      </tr>
+      <tr>
+        <th>Request URL:</th>
+        <td>http://127.0.0.1:8000/api/v1/songs/-1</td>
+      </tr>
+
+    </table>
+  </div>
+  <div id="info">
+
+      <p>
+      Using the URLconf defined in <code>basic_tut_api.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+
+          <li>
+
+
+
+
+                ^users/$
+                [name='user-list']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^users\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='user-list']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^users/(?P&lt;pk&gt;[^/.]+)/$
+                [name='user-detail']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^users/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='user-detail']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^groups/$
+                [name='group-list']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^groups\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='group-list']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^groups/(?P&lt;pk&gt;[^/.]+)/$
+                [name='group-detail']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^groups/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='group-detail']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^$
+                [name='api-root']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='api-root']
+
+          </li>
+
+          <li>
+
+                api/(?P&lt;version&gt;(v1|v2))/
+
+
+                songs/
+                [name='songs-all']
+
+          </li>
+
+          <li>
+
+                api/(?P&lt;version&gt;(v1|v2))/
+
+
+                songs/&lt;int:pk&gt;
+                [name='songs-detail']
+
+          </li>
+
+          <li>
+
+                api-auth/
+
+
+          </li>
+
+          <li>
+
+                admin/
+
+
+          </li>
+
+      </ol>
+      <p>
+
+        The current path, <code>api/v1/songs/-1</code>, didn't match any of these.
+      </p>
+
+  </div>
+
+  <div id="explanation">
+    <p>
+      You're seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </div>
+</body>
+</html>
+
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/44
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 07:37:53 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"message":"Song with id: 44 does not exist"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/4
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 07:37:58 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 44
+
+{"message":"Song with id: 4 does not exist"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/-1
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 07:38:01 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: text/html
+X-Frame-Options: SAMEORIGIN
+Content-Length: 4488
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>Page not found at /api/v1/songs/-1</title>
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; background:#eee; color:#000; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 span { font-size:60%; color:#666; font-weight:normal; }
+    table { border:none; border-collapse: collapse; width:100%; }
+    td, th { vertical-align:top; padding:2px 3px; }
+    th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    #info { background:#f6f6f6; }
+    #info ol { margin: 0.5em 4em; }
+    #info ol li { font-family: monospace; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+  </style>
+</head>
+<body>
+  <div id="summary">
+    <h1>Page not found <span>(404)</span></h1>
+    <table class="meta">
+      <tr>
+        <th>Request Method:</th>
+        <td>GET</td>
+      </tr>
+      <tr>
+        <th>Request URL:</th>
+        <td>http://127.0.0.1:8000/api/v1/songs/-1</td>
+      </tr>
+
+    </table>
+  </div>
+  <div id="info">
+
+      <p>
+      Using the URLconf defined in <code>basic_tut_api.urls</code>,
+      Django tried these URL patterns, in this order:
+      </p>
+      <ol>
+
+          <li>
+
+
+
+
+                ^users/$
+                [name='user-list']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^users\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='user-list']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^users/(?P&lt;pk&gt;[^/.]+)/$
+                [name='user-detail']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^users/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='user-detail']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^groups/$
+                [name='group-list']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^groups\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='group-list']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^groups/(?P&lt;pk&gt;[^/.]+)/$
+                [name='group-detail']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^groups/(?P&lt;pk&gt;[^/.]+)\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='group-detail']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^$
+                [name='api-root']
+
+          </li>
+
+          <li>
+
+
+
+
+                ^\.(?P&lt;format&gt;[a-z0-9]+)/?$
+                [name='api-root']
+
+          </li>
+
+          <li>
+
+                api/(?P&lt;version&gt;(v1|v2))/
+
+
+                songs/
+                [name='songs-all']
+
+          </li>
+
+          <li>
+
+                api/(?P&lt;version&gt;(v1|v2))/
+
+
+                songs/&lt;int:pk&gt;
+                [name='songs-detail']
+
+          </li>
+
+          <li>
+
+                api-auth/
+
+
+          </li>
+
+          <li>
+
+                admin/
+
+
+          </li>
+
+      </ol>
+      <p>
+
+        The current path, <code>api/v1/songs/-1</code>, didn't match any of these.
+      </p>
+
+  </div>
+
+  <div id="explanation">
+    <p>
+      You're seeing this error because you have <code>DEBUG = True</code> in
+      your Django settings file. Change that to <code>False</code>, and Django
+      will display a standard 404 page.
+    </p>
+  </div>
+</body>
+</html>
+
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/0
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 07:44:32 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 44
+
+{"message":"Song with id: 0 does not exist"}
+
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/-1
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 08:05:42 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"message":"Song with id: -1 does not exist"}
+
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/56
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 08:05:50 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"message":"Song with id: 56 does not exist"}
+
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/2
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 08:05:53 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 42
+
+{"title":"Gotham City","artist":"R kelly"}
+
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/-1
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 08:06:46 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"message":"Song with id: -1 does not exist"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/-090
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 08:06:48 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 46
+
+{"message":"Song with id: -90 does not exist"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/2
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 08:06:53 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 42
+
+{"title":"Gotham City","artist":"R kelly"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/1
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 08:06:55 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 44
+
+{"title":"Kiss from a rose","artist":"Seal"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/3
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 08:06:57 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"title":"World Greatest","artist":"R Kelly"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/3
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 08:07:00 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"title":"World Greatest","artist":"R Kelly"}
+d:\learn\python\py_learnings (master -> origin)
+λ curl -i -d '{"title": "My Own Beats", "artist": "John Legor"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/songs/
+curl: (6) Could not resolve host: My Own Beats,
+curl: (6) Could not resolve host: artist
+curl: (3) [globbing] unmatched close brace/bracket in column 11
+HTTP/1.1 400 Bad Request
+Date: Tue, 03 Sep 2019 08:32:22 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 73
+
+{"detail":"JSON parse error - Expecting value: line 1 column 1 (char 0)"}
+d:\learn\python\py_learnings (master -> origin)
+λ cd d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music
+
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d '{"title": "My Own Beats", "artist": "John Legor"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/songs/
+curl: (6) Could not resolve host: My Own Beats,
+curl: (6) Could not resolve host: artist
+curl: (3) [globbing] unmatched close brace/bracket in column 11
+HTTP/1.1 400 Bad Request
+Date: Tue, 03 Sep 2019 08:34:20 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 73
+
+{"detail":"JSON parse error - Expecting value: line 1 column 1 (char 0)"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "@music_songs_post_curl.json" -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 201 Created
+Date: Tue, 03 Sep 2019 08:37:46 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 46
+
+{"title":"My Own Beats","artist":"John Legor"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "{"title": "Beauty inside", "artist": "Serena Grande"}" -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/songs/
+curl: (3) Port number ended with ' '
+curl: (3) [globbing] unmatched close brace/bracket in column 7
+HTTP/1.1 400 Bad Request
+Date: Tue, 03 Sep 2019 08:38:31 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 107
+
+{"detail":"JSON parse error - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "\{\"title\": \"Beauty inside\", \"artist\": \"Serena Grande\"\}" -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 400 Bad Request
+Date: Tue, 03 Sep 2019 08:39:24 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 73
+
+{"detail":"JSON parse error - Expecting value: line 1 column 1 (char 0)"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "{\"title\": \"Beauty inside\", \"artist\": \"Serena Grande\"}" -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 201 Created
+Date: Tue, 03 Sep 2019 08:39:40 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 50
+
+{"title":"Beauty inside","artist":"Serena Grande"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs
+HTTP/1.1 301 Moved Permanently
+Date: Tue, 03 Sep 2019 08:40:03 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: text/html; charset=utf-8
+Location: /api/v1/songs/
+Content-Length: 0
+
+
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 08:40:16 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 233
+
+[{"title":"Kiss from a rose","artist":"Seal"},{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"},{"title":"My Own Beats","artist":"John Legor"},{"title":"Beauty inside","artist":"Serena Grande"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/4
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 08:40:32 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 46
+
+{"title":"My Own Beats","artist":"John Legor"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/45
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 08:40:33 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"message":"Song with id: 45 does not exist"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/5
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 08:40:35 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 50
+
+{"title":"Beauty inside","artist":"Serena Grande"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/-1
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 08:40:37 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"message":"Song with id: -1 does not exist"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/-1
+curl: (7) Failed to connect to 127.0.0.1 port 8000: Connection refused
+
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/-1
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 09:05:41 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"message":"Song with id: -1 does not exist"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs
+HTTP/1.1 301 Moved Permanently
+Date: Tue, 03 Sep 2019 09:06:28 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: text/html; charset=utf-8
+Location: /api/v1/songs/
+Content-Length: 0
+
+
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 09:06:30 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 233
+
+[{"title":"Kiss from a rose","artist":"Seal"},{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"},{"title":"My Own Beats","artist":"John Legor"},{"title":"Beauty inside","artist":"Serena Grande"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "@music_songs_put_curl.json" -H "Content-Type: application/json" -X PUT http://127.0.0.1:8000/api/v1/songs/4
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 09:06:49 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 48
+
+{"title":"My Own Beats1","artist":"John Legor1"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 09:06:53 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 235
+
+[{"title":"Kiss from a rose","artist":"Seal"},{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "{\"title\": \"Beauty inside\", \"artist\": \"Serena Grande\"}" -H "Content-Type: application/json" -X PUT http://127.0.0.1:8000/api/v1/songs/7
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 09:07:24 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 44
+
+{"message":"Song with id: 7 does not exist"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 09:18:25 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 235
+
+[{"title":"Kiss from a rose","artist":"Seal"},{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -X DELETE http://127.0.0.1:8000/api/v1/songs/1
+HTTP/1.1 204 No Content
+Date: Tue, 03 Sep 2019 09:18:40 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Vary: Accept, Cookie
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 0
+
+
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 09:18:43 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 190
+
+[{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -X DELETE http://127.0.0.1:8000/api/v1/songs/10
+HTTP/1.1 404 Not Found
+Date: Tue, 03 Sep 2019 09:18:49 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 45
+
+{"message":"Song with id: 10 does not exist"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/
+curl: (7) Failed to connect to 127.0.0.1 port 8000: Connection refused
+
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 401 Unauthorized
+Date: Tue, 03 Sep 2019 09:53:44 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+WWW-Authenticate: Bearer realm="api"
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 58
+
+{"detail":"Authentication credentials were not provided."}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 401 Unauthorized
+Date: Tue, 03 Sep 2019 10:21:03 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+WWW-Authenticate: Bearer realm="api"
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 58
+
+{"detail":"Authentication credentials were not provided."}
+
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "@music_users_login_post_curl.json" -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/auth/login/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:24:40 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: POST, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 209
+Set-Cookie:  csrftoken=m9edY14vOUXRQQ9FBh3yDG3mc8npmjlEB2A5HRLfDFQCh6GjC4d0gFGMwm5d1mv7; expires=Tue, 01 Sep 2020 10:24:40 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Set-Cookie:  sessionid=9bhgq48vfvdr61cfhn40pus70zkldjkz; expires=Tue, 17 Sep 2019 10:24:40 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax
+
+{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY1ODAsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.KCuCwFBnyYNZlNkiElopYOgT1_YVsIVPCHxxx457oKY"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY1ODAsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.KCuCwFBnyYNZlNkiElopYOgT1_YVsIVPCHxxx457oKY" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 401 Unauthorized
+Date: Tue, 03 Sep 2019 10:25:42 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+WWW-Authenticate: Bearer realm="api"
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 58
+
+{"detail":"Authentication credentials were not provided."}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "HTTP_AUTHORIZATION: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY1ODAsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.KCuCwFBnyYNZlNkiElopYOgT1_YVsIVPCHxxx457oKY" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 401 Unauthorized
+Date: Tue, 03 Sep 2019 10:26:30 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+WWW-Authenticate: Bearer realm="api"
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 58
+
+{"detail":"Authentication credentials were not provided."}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY1ODAsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.KCuCwFBnyYNZlNkiElopYOgT1_YVsIVPCHxxx457oKY" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:26:41 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 190
+
+[{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY1ODAsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.KCuCwFBnyYNZlNkiElopYOgT1_YVsIVPCHxxx457oKY" -d "{\"title\": \"Transformers\", \"artist\": \"Linkin Park\"}" -H "Content-Type: application/json" -X PUT http://127.0.0.1:8000/api/v1/songs/7
+HTTP/1.1 403 Forbidden
+Date: Tue, 03 Sep 2019 10:27:57 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 63
+
+{"detail":"You do not have permission to perform this action."}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY1ODAsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.KCuCwFBnyYNZlNkiElopYOgT1_YVsIVPCHxxx457oKY" -d "{\"title\": \"Transformers\", \"artist\": \"Linkin Park\"}" -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 201 Created
+Date: Tue, 03 Sep 2019 10:28:27 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 47
+
+{"title":"Transformers","artist":"Linkin Park"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY1ODAsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.KCuCwFBnyYNZlNkiElopYOgT1_YVsIVPCHxxx457oKY" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:28:30 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 238
+
+[{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"},{"title":"Transformers","artist":"Linkin Park"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY1ODAsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.KCuCwFBnyYNZlNkiElopYOgT1_YVsIVPCHxxx457oKY" -d "{\"title\": \"Transformers V1\", \"artist\": \"Linkin Park\"}" -H "Content-Type: application/json" -X PUT http://127.0.0.1:8000/api/v1/songs/5
+HTTP/1.1 403 Forbidden
+Date: Tue, 03 Sep 2019 10:29:00 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 63
+
+{"detail":"You do not have permission to perform this action."}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY1ODAsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.KCuCwFBnyYNZlNkiElopYOgT1_YVsIVPCHxxx457oKY" -H "Content-Type: application/json" -X DELETE http://127.0.0.1:8000/api/v1/songs/1
+HTTP/1.1 401 Unauthorized
+Date: Tue, 03 Sep 2019 10:30:18 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+WWW-Authenticate: Bearer realm="api"
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 35
+
+{"detail":"Signature has expired."}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "@music_users_login_post_curl.json" -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/auth/login/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:30:29 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: POST, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 209
+Set-Cookie:  csrftoken=irs6gMIR9TLARycN3NXQpxeOk1bQm50Awqr70ipqy8TjbNXtWIKg9t1c3M6tGfbE; expires=Tue, 01 Sep 2020 10:30:29 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Set-Cookie:  sessionid=agbglbunccxiab3c8oq4ocr5avp4qw7z; expires=Tue, 17 Sep 2019 10:30:29 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax
+
+{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -X DELETE http://127.0.0.1:8000/api/v1/songs/1
+HTTP/1.1 403 Forbidden
+Date: Tue, 03 Sep 2019 10:31:02 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 63
+
+{"detail":"You do not have permission to perform this action."}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -d "@music_songs_post_curl.json" -X POST http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 201 Created
+Date: Tue, 03 Sep 2019 10:32:29 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 51
+
+{"title":"Rock You Baby","artist":" George McCrae"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -d "@music_songs_post_curl.json" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:32:41 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 290
+
+[{"title":"Gotham City","artist":"R kelly"},{"title":"World Greatest","artist":"R Kelly"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"},{"title":"Transformers","artist":"Linkin Park"},{"title":"Rock You Baby","artist":" George McCrae"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -d "@music_songs_put_curl.json" -X PUT http://127.0.0.1:8000/api/v1/songs/3
+HTTP/1.1 403 Forbidden
+Date: Tue, 03 Sep 2019 10:33:26 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 63
+
+{"detail":"You do not have permission to perform this action."}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -d "@music_songs_put_curl.json" -X PUT http://127.0.0.1:8000/api/v1/songs/3
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:34:35 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 46
+
+{"title":"My Own Beats","artist":"John Legor"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -d "@music_songs_post_curl.json" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:34:39 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 291
+
+[{"title":"Gotham City","artist":"R kelly"},{"title":"My Own Beats","artist":"John Legor"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"},{"title":"Transformers","artist":"Linkin Park"},{"title":"Rock You Baby","artist":" George McCrae"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:35:08 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 291
+
+[{"title":"Gotham City","artist":"R kelly"},{"title":"My Own Beats","artist":"John Legor"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"},{"title":"Transformers","artist":"Linkin Park"},{"title":"Rock You Baby","artist":" George McCrae"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -d "@music_songs_put_curl.json" -X PUT http://127.0.0.1:8000/api/v1/songs/3
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:35:16 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 46
+
+{"title":"My Own Beats","artist":"John Legor"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:35:24 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 291
+
+[{"title":"Gotham City","artist":"R kelly"},{"title":"My Own Beats","artist":"John Legor"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"},{"title":"Transformers","artist":"Linkin Park"},{"title":"Rock You Baby","artist":" George McCrae"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDY5MjksImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.hQoPqHV9uQICnhuoDi7wWCeAjypI2X5dj48x4qnUED8" -H "Content-Type: application/json" -X DELETE http://127.0.0.1:8000/api/v1/songs/3
+HTTP/1.1 401 Unauthorized
+Date: Tue, 03 Sep 2019 10:35:46 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+WWW-Authenticate: Bearer realm="api"
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 35
+
+{"detail":"Signature has expired."}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "@music_users_login_post_curl.json" -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/auth/login/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:35:54 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: POST, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 209
+Set-Cookie:  csrftoken=YG3BwQRwZosDNGsvinsu0WH7HnMKVCle6CJ3Jd7teqSInOybs4jTMN9IAouwl1ee; expires=Tue, 01 Sep 2020 10:35:54 GMT; Max-Age=31449600; Path=/; SameSite=Lax
+Set-Cookie:  sessionid=xpo76cq5svfz8qaq6rtjfn9ltfmivoow; expires=Tue, 17 Sep 2019 10:35:54 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax
+
+{"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDcyNTQsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.WiJze-ApYgAHz9yaJbA_6nfDdbQUWY6HhjYHj1npu9g"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDcyNTQsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.WiJze-ApYgAHz9yaJbA_6nfDdbQUWY6HhjYHj1npu9g" -H "Content-Type: application/json" -X DELETE http://127.0.0.1:8000/api/v1/songs/3
+HTTP/1.1 204 No Content
+Date: Tue, 03 Sep 2019 10:36:38 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Vary: Accept
+Allow: GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 0
+
+
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDcyNTQsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.WiJze-ApYgAHz9yaJbA_6nfDdbQUWY6HhjYHj1npu9g" -H "Content-Type: application/json" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:36:53 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 244
+
+[{"title":"Gotham City","artist":"R kelly"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"},{"title":"Transformers","artist":"Linkin Park"},{"title":"Rock You Baby","artist":" George McCrae"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJ1c2VybmFtZSI6Im11c2ljdXNlcjEiLCJleHAiOjE1Njc1MDcyNTQsImVtYWlsIjoibXVzaWN1c2VyMUBwaGVvbml4LmNvbSJ9.WiJze-ApYgAHz9yaJbA_6nfDdbQUWY6HhjYHj1npu9g" -H "Content-Type: application/json" -X GET http://127.0.0.1:8000/api/v1/songs/
+HTTP/1.1 200 OK
+Date: Tue, 03 Sep 2019 10:38:09 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 283
+
+[{"title":"Gotham City","artist":"R kelly"},{"title":"My Own Beats1","artist":"John Legor1"},{"title":"Beauty inside","artist":"Serena Grande"},{"title":"Transformers","artist":"Linkin Park"},{"title":"Rock You Baby","artist":" George McCrae"},{"title":"TestAdmin","artist":"admin"}]
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ curl -i -d "{\"username\": \"new_user2\", \"password\": \"password$1\", \"email\": \"new_user2@pheonix.com\"}" -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/v1/auth/register/
+HTTP/1.1 201 Created
+Date: Tue, 03 Sep 2019 10:45:46 GMT
+Server: WSGIServer/0.2 CPython/3.7.4
+Content-Type: application/json
+Vary: Accept
+Allow: POST, OPTIONS
+X-Frame-Options: SAMEORIGIN
+Content-Length: 56
+
+{"username":"new_user2","email":"new_user2@pheonix.com"}
+d:\learn\python\py_learnings\practise\drftutorial\basic_tut_api\music (master -> origin)
+λ
